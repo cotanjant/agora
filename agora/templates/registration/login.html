@@ -1,20 +1,15 @@
-<h1>Login</h1>
 
-<form method="post">
-    <!--
-        we say this line to
-        include django's csrf_token
-        this is like a safety token between django backend
-        and frontend
-    -->
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <h1>Log in</h1>
+
+  <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
 
     <button type="submit">Log in</button>
+  </form>
 
-    <div>
-        <p>
-            if you don't have a account <a href="{% url 'signup' %}">Sign up</a> <!-- we have to redirect to signup here -->
-        </p>
-    </div>
-</form>
+  <p>You don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+{% endblock %}
