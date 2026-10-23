@@ -2,3 +2,8 @@
 
 # preventing from pushing db
 db*
+
+__pycache__/
+*.py[cod]
+.env
+.venv/

@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 
-# Create your views here.
+def signup(req):
+    if req.method == "POST":
+        form = UserCreationForm(req.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+
+    return render(req, "registration/signup.html", {"form": form})
