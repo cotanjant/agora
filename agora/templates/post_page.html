@@ -1,0 +1,9 @@
+{% block title %}{{ post.title }}{%endblock%}
+
+{% block content %}
+    <article>
+        <h1>{{ post.title }}</h1>
+        <small>{{ post.publisher.username }} - {{ post.published_at|date:"d M Y" }}</small>
+        <div>{{post.content|linebreaks}}</div>
+    </article>
+{% endblock %}

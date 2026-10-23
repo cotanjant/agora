@@ -1,0 +1,18 @@
+{% block title %}Ana sayfa{% endblock %}
+
+<div>
+    <button><a href="{% url 'login' %}">Sign in</a></button>
+    <button><a href="{% url 'signup'%}">Sign up</a></button>
+</div>
+
+{% block content %}
+    {% for post in posts %}
+        <article>
+            <h2><a href="{% url 'post_by_id' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.content|truncatewords:30 }}</p>
+            <small>{{ post.publisher.username }} · {{ post.published_at|date:"d M Y" }}</small>
+        </article>
+    {% empty %}
+        <p>No article.</p>
+    {% endfor %}
+{% endblock %}

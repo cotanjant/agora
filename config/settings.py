@@ -128,3 +128,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+# to redirect users to post_index while they login or signup
+LOGIN_REDIRECT_URL = "post_index"
+LOGOUT_REDIRECT_URL = "post_index"
