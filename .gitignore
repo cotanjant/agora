@@ -1,0 +1,4 @@
+.env
+
+# preventing from pushing db
+db*
