@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <a href="{% url 'post_index' %}">Agora</a>
+
+    <div class="navlinks">
+        <a href="{% url 'post_index' %}">Posts</a>
+        {% if user.is_authenticated %}
+            {% csrf_token %}
+            <a href="{% url 'profile' user.username %}">Your profile</a>
+            <form method="post">
+                <a type="submit" href="{% url 'logout %}">Sign out</a>
+            </form>
+        {% else %}
+            <a href="{% url 'signup' %}">Sign up</a>
+            <a href="{% url 'login' %}">Sign in</a>
+        {% endif %}
+    </div>
+</nav>

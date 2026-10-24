@@ -28,7 +28,7 @@ class Post(models.Model):
     )
     publisher = models.ForeignKey(
         User,
-        # CASCADE deletes the model itself ?
+        # this line will delete user's all posts if user deletes it's profile
         on_delete=models.CASCADE,
         null=False,
         blank=False
